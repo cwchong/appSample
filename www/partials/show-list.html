@@ -1,0 +1,23 @@
+<div class="topcoat-navigation-bar">
+    <div class="topcoat-navigation-bar__item center full">
+        <h1 class="topcoat-navigation-bar__title">Shows Directory</h1>
+    </div>
+</div>
+<div class="search-bar">
+    <input ng-model="query" type="search" placeholder="search" class="topcoat-search-input search-key">
+</div>
+<div class="topcoat-list__container scroller" style="top:138px;">
+    <ul class="topcoat-list list">
+        <li ng-repeat="show in shows | filter:query | orderBy:orderProp" class="topcoat-list__item">
+            <a ng-click="go('/shows/' + show.ID)">
+                <img ng-src="http://192.168.1.9/sifa/{{show.Filename}}" ng-show="show.Filename">
+                <img ng-src="pics/james_king.jpg" ng-hide="show.Filename">
+                <p>{{show.DisplayTitle ? show.DisplayTitle : show.ShowTitle}}</p>
+                <p>{{show.DisplayDate ? show.DisplayDate : show.ShowDisplayDate}}
+                {{show.ShowDisplayVenue}})
+                </p>
+                <span class="chevron"></span><span class="count">{{show.SSCount}}</span>
+            </a>
+        </li>
+    </ul>
+</div>

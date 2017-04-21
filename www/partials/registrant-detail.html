@@ -1,0 +1,27 @@
+<div class="topcoat-navigation-bar">
+    <div class="topcoat-navigation-bar__item left quarter">
+        <a class="topcoat-icon-button--quiet back-button" href="" ng-click="back()">
+            <span class="topcoat-icon topcoat-icon--back"></span>
+        </a>
+    </div>
+    <div class="topcoat-navigation-bar__item center half">
+        <h1 class="topcoat-navigation-bar__title">Registrant</h1>
+    </div>
+</div>
+
+<div class='details'>
+    <img ng-src="pics/james_king.jpg" class="employee-image">
+    <h1>{{registrant.GivenName}} {{registrant.Surname}}</h1>
+    <h2>{{registrant.ICFIN}}</h2>
+    <h2>{{registrant.TicketID}}</h2>
+    <div class="topcoat-list__container scroller">
+        <ul class="topcoat-list list actions">
+            <li class="topcoat-list__item"><a><p>Type</p><p>{{registrant.Type}} <span ng-show="registrant.Type == 'Group'">({{registrant.GroupID}})</span></p></a></li>
+            <li class="topcoat-list__item"><a><p># Seats</p><p>{{registrant.NumSeats}}</p></a></li>
+            <li class="topcoat-list__item"><a><p>On Waiting List?</p><p>{{registrant.OnWaitingList ? 'Yes' : 'No' }}</p></a></li>
+            <li class="topcoat-list__item" ng-show="registrant.Mobile"><a href="tel:{{registrant.Mobile}}"><p>Call Cell</p><p>{{registrant.Mobile}}</p><div class="action-icon icon-call"/></a></li>
+            <li class="topcoat-list__item" ng-show="registrant.Mobile"><a href="sms:{{registrant.Mobile}}"><p>SMS</p><p>{{registrant.Mobile}}</p><div class="action-icon icon-sms"/></a></li>
+            <li class="topcoat-list__item" ng-show="registrant.Email"><a href="mailto:{{registrant.Email}}"><p>Email</p><p>{{registrant.Email}}</p><div class="action-icon icon-mail"/></a></li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="topcoat-navigation-bar">
+    <div class="topcoat-navigation-bar__item left quarter">
+        <a class="topcoat-icon-button--quiet back-button" href="" ng-click="back()">
+            <span class="topcoat-icon topcoat-icon--back"></span>
+        </a>
+    </div>
+    <div class="topcoat-navigation-bar__item center half">
+        <h1 class="topcoat-navigation-bar__title">Registrants (put session info here)</h1>
+    </div>
+</div>
+
+<div class="topcoat-list__container scroller" style="top:69px;">
+    <ul class="topcoat-list list">
+        <li ng-repeat="registrant in registrants | filter:query | orderBy:'Created':true" class="topcoat-list__item">
+            <a ng-click="go('/shows/' + showId + '/session/' + registrant.RegistrationSessionID + '/registrant/' + registrant.ID)">
+                <p>{{registrant.GivenName}} {{registrant.Surame}}</p>
+                <p>{{registrant.ICFIN}} 
+                ({{registrant.Created}})</p>
+                <span class="chevron"></span>
+            </a>
+        </li>
+    </ul>
+</div>
